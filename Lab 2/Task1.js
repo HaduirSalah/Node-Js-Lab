@@ -17,7 +17,7 @@ function Greetr()
 
 util.inherits(Greetr,EventEmitter);
 
-
+// Function emit to fire event
 Greetr.prototype.greet=function()
 {
     console.log(this.greeting);   //Hello From Lab 2 Node JS
@@ -27,9 +27,10 @@ Greetr.prototype.greet=function()
 
 var greeter1=new Greetr();
 
+// Function on to handel event
 greeter1.on('greet',function()
 {
-    console.log("Event Greet occured");
+    console.log("Event Greet occured"); // Handel Event
 });
 
 greeter1.greet();
