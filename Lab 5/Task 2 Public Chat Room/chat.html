@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+      <div id="chatRoom"></div>
+        <div id="client"></div>
+        <div id="d2"></div>
+
+        <input type="text" id="chat"></br>
+        <button type="submit" onClick="sendMessage()">send message</button>
+
+
+      <script>
+      // emit event called connect
+        var socket = io.connect('localhost:3000')
+
+        // //simple logic
+        // socket.on('connected', function(data){
+        //   // console.log('successed joined')
+        //   nickname = prompt('what is your nick name')
+        //   socket.emit('join', nickname)
+        // })
+
+
+        // socket.on('messages', function(data){
+        //   console.log('here')
+        //   document.getElementById('chatRoom').innerHTML = "broadcast with out client"
+        //   document.getElementById('chatRoom').innerHTML += "<br>"+ data
+        // });
+        
+       
+        // socket.on('all', function(data){
+        //   document.getElementById("d2").innerHTML += "msg from all " + data + "<br/>";
+
+        // });
+        // socket.on('msg', function(data){
+        //   // document.getElementById('client').innerHTML = "welcome to client"
+        //   document.getElementById('client').innerHTML += "<br>"+ data
+        
+        //   console.log(data)
+        // })
+        
+        // socekt.on('notificatrion', fucntion(){
+        
+        // })
+        
+        function sendMessage(){
+          var chat = document.getElementById('chat').value
+          socket.emit('message', chat)
+        }
+        </script>
+      <body>
+</html>
+
